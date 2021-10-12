@@ -1,0 +1,32 @@
+<div>
+  <label for="nombre">Nombre</label>
+  <input class="input" style="margin: 20px;" type="text" style="display: block;" name="nombre"  [(ngModel)]="nombreModel"/>
+  <select [(ngModel)]="cursoSeleccionado" style="margin-top: 20px;">
+    <option value="0">Selecciona una opción</option>
+    <option *ngFor="let curso of cursos" [value]="curso.id">
+      {{curso.nombre}}
+    </option>
+  </select>
+</div>
+<button class="btn btn-success" style="margin-top: 20px; margin-bottom: 20px;" (click)="addAlumno()">Añadir alumno</button>
+
+<div class="row">
+    <div class="col-12">
+      <!-- Row -->
+      <div class="row">
+          <!-- column -->
+          <div class="col-lg-3 col-md-6"  *ngFor="let data of alumnos">
+              <!-- Card -->
+              <div class="card">
+                <img class="card-img-top img-responsive" src="assets/images/big/img2.jpg" alt="Card image cap" height="200px" width="200px">
+
+                  <div class="card-body" style="background-color: rgb(214, 214, 213);" >
+                      <h4 class="card-title">{{data.id}}</h4>
+                      <p class="card-text">{{data.name}}</p>
+                      <a routerLink="/component/alumnos/{{data.id}}" class="btn btn-primary">Detalle</a>
+                  </div>
+              </div>
+              <!-- Card -->
+          </div>
+    </div>
+</div>

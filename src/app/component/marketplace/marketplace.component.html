@@ -1,0 +1,9 @@
+<app-card-marketplace [mensaje]="'Mensaje de prueba'" [title]="'Titulo de prueba'"></app-card-marketplace>
+
+<button class="btn btn-lg btn-outline-primary" (click)="show()">cambiar</button>
+
+<div *ngIf="showed">
+  <app-modal-marketplace (resultado)="salida($event)"></app-modal-marketplace>
+</div>
+
+<app-toast-marketplace></app-toast-marketplace>

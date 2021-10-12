@@ -1,0 +1,27 @@
+
+<div class="card" style="width: 50%; text-align: center;margin-left: auto;
+margin-right: auto;" *ngIf="curso">
+  <img class="card-img-top img-responsive" src="assets/images/big/img1.jpg" alt="Card image cap" height="300px">
+
+  <div class="card-body" style="background-color: rgb(214, 214, 213);">
+      <h4 class="card-title">{{curso.id}}</h4>
+      <input type="text" [(ngModel)]="nombreUpdate"/>
+    </div>
+    <div class="card-body" style="background-color: rgb(214, 214, 213);">
+      <b><p class="card-title">Alumnos</p></b> <br>
+      <select [(ngModel)]="alumnoSeleccionado" (change)="capturar()">
+      <option value="0">Selecciona una opción</option>
+      <option *ngFor="let alumno of alumnos" [value]="alumno.id">
+        {{alumno.name}}
+      </option>
+    </select>
+    <button class="btn btn-success" style="margin-left: 10px;" (click)="addAlumno()">Añadir</button>
+    <ul style="text-align: left;">
+      <li *ngFor="let item of curso.alumnos">
+        {{item.name}}
+      </li>
+    </ul>
+    <button class="btn btn-primary" (click)="editCurso()">Actualizar</button>
+    <button class="btn btn-danger"(click)="deleteCurso()">Eliminar</button>
+  </div>
+</div>
